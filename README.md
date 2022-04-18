@@ -1,4 +1,4 @@
-# Traffic Violation using jBPM
+# Traffic Violation using PAM
 
 # Build and run
 
@@ -8,7 +8,6 @@ You will need:
   - Java 11+ installed
   - Environment variable JAVA_HOME set accordingly
   - Maven 3.8.1+ installed
-  - Clone project to a local directory
 
 ### Package and Run Local
   <code>
@@ -19,7 +18,9 @@ You will need:
 ### OpenAPI (Swagger) documentation
 [Specification at swagger.io](https://swagger.io/docs/specification/about/)
 
-You can take a look at the [OpenAPI definition](http://localhost:8080/v3/api-docs) - automatically generated and included in this service - to determine all available operations exposed by this service. For easy readability you can visualize the OpenAPI definition file using a Swagger UI tool (http://localhost:9000/rest/server/containers/swagger.json)]
+You can take a look at the automatically generated swagger UI - to determine all available operations exposed by the service. For easy readability, you can visualize the OpenAPI definition file using a Swagger UI tool to access the swagger UI [(https://localhost:9000/rest/api-docs/?url=https://localhost:9000/rest/server/containers/swagger.json)] after opening the swagger UI add the following URL [(https://localhost:9000/rest/server/containers/swagger.json)] to the search box and click the Explore button
+
+![Traffic violation Swagger UI Screen Capture](/traffic-violation-kjar/global/Swagger_UI.png "Swagger UI screen Capture")
 
 
 ## Example Usage on Postman
@@ -44,7 +45,7 @@ Given data:
     }
 }
 ```
-Submit the JSON object from above you should see a similar out put
+Submit the JSON object from above you should see a similar output
 ```json
  {
     "type": "SUCCESS",
@@ -92,6 +93,13 @@ Submit the JSON object from above you should see a similar out put
         }
     }
 ```
+### Disabling authentication 
+- To disable the security kie server auto-configuration, add
+<code>
+http.authorizeRequests().antMatchers("/**").permitAll().anyRequest().authenticated().and().csrf().disable();
+</code> to the DefaultWebSecurityConfig.java file located under traffic-violation-service/java/com/nvs/trafficviolation/service
 
 
+### To Enable the HTTPS
+- Use the following link to set up the SSL for Spring Boot https://www.tutorialspoint.com/spring_boot/spring_boot_enabling_https.htm 
 
