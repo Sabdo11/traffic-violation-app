@@ -102,4 +102,5 @@ http.authorizeRequests().antMatchers("/**").permitAll().anyRequest().authenticat
 
 ### To Enable the HTTPS
 - Use the following link to set up the SSL for Spring Boot https://www.tutorialspoint.com/spring_boot/spring_boot_enabling_https.htm 
+- After generating the self signed certificate add the certificate to traffic-violation-service/src/main/resources folder
 

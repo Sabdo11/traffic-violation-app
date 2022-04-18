@@ -36,32 +36,32 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    // @Autowired
+    // public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.inMemoryAuthentication().withUser("user").password("user").roles("kie-server");
-        auth.inMemoryAuthentication().withUser("wbadmin").password("wbadmin").roles("admin");
-        auth.inMemoryAuthentication().withUser("kieserver").password("kieserver1!").roles("kie-server");
+    //     auth.inMemoryAuthentication().withUser("user").password("user").roles("kie-server");
+    //     auth.inMemoryAuthentication().withUser("wbadmin").password("wbadmin").roles("admin");
+    //     auth.inMemoryAuthentication().withUser("kieserver").password("kieserver1!").roles("kie-server");
         
-    }
+    // }
 
 
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("*"));
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedMethods(Arrays.asList(HttpMethod.GET.name(), HttpMethod.HEAD.name(),
-                                                          HttpMethod.POST.name(), HttpMethod.DELETE.name(), HttpMethod.PUT.name()));
-        corsConfiguration.applyPermitDefaultValues();
-        source.registerCorsConfiguration("/**", corsConfiguration);
-        return source;
-    }
+    // @Bean
+    // CorsConfigurationSource corsConfigurationSource() {
+    //     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    //     CorsConfiguration corsConfiguration = new CorsConfiguration();
+    //     corsConfiguration.setAllowedOrigins(Arrays.asList("*"));
+    //     corsConfiguration.setAllowCredentials(true);
+    //     corsConfiguration.setAllowedMethods(Arrays.asList(HttpMethod.GET.name(), HttpMethod.HEAD.name(),
+    //                                                       HttpMethod.POST.name(), HttpMethod.DELETE.name(), HttpMethod.PUT.name()));
+    //     corsConfiguration.applyPermitDefaultValues();
+    //     source.registerCorsConfiguration("/**", corsConfiguration);
+    //     return source;
+    // }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
+    // @Bean
+    // public PasswordEncoder passwordEncoder() {
+    //     return NoOpPasswordEncoder.getInstance();
+    // }
 }
