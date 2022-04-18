@@ -24,15 +24,16 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .cors().and()
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/rest/*").authenticated().and()
-                .httpBasic().and()
-                .headers().frameOptions().disable();
-        // http.authorizeRequests().antMatchers("/").permitAll();
-        
+        // http
+        //         .cors().and()
+        //         .csrf().disable()
+        //         .authorizeRequests()
+        //         .antMatchers("/rest/*").authenticated().and()
+        //         .httpBasic().and()
+        //         .headers().frameOptions().disable();
+
+            http.authorizeRequests().antMatchers("/**").permitAll().anyRequest().authenticated().and().csrf().disable();
+    
     }
 
     @Autowired
@@ -41,17 +42,9 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("user").password("user").roles("kie-server");
         auth.inMemoryAuthentication().withUser("wbadmin").password("wbadmin").roles("admin");
         auth.inMemoryAuthentication().withUser("kieserver").password("kieserver1!").roles("kie-server");
+        
     }
 
-    // @Bean
-    // SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    //   return http
-    //     .requiresChannel(channel -> 
-    //         channel.anyRequest().requiresSecure())
-    //     .authorizeRequests(authorize ->
-    //         authorize.anyRequest().permitAll())
-    //     .build();
-    //   }
 
 
     @Bean
