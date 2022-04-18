@@ -29,7 +29,7 @@ Once the service is up and running we can invoke the REST endpoints and examine 
 
 ### Submit a request
 
-To make use of this application it is as simple as sending a POST request to `http://localhost:9000/rest/server/containers/traffic-violation-kjar-1_0-SNAPSHOT/dmn` with the appropriate json requests content.
+To make use of this application it is as simple as sending a POST request to `https://localhost:9000/rest/server/containers/traffic-violation-kjar-1_0-SNAPSHOT/dmn` with the appropriate json requests content.
 
 
 Given data:
