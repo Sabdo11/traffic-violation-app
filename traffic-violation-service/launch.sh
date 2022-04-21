@@ -63,7 +63,7 @@ fi
 if [[ "$@" =~ "docker" ]]; then
     echo "Launching the application as docker container..."
     
-    docker run -d -p 8090:8090 --name traffic-violation-service apps/traffic-violation-service:1.0-SNAPSHOT
+    docker run -d -p 9000:9000 --name traffic-violation-service apps/traffic-violation-service:1.0-SNAPSHOT
 elif [[ "$@" =~ "openshift" ]]; then
     echo "Launching the application on OpenShift..."
     
